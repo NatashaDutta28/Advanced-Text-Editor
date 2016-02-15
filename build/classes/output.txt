@@ -1,0 +1,29 @@
+Input File Content:
+x = 9
+y = sin(23) + cos(76)
+z = x*x + 2*y*x + y*y
+x = z/2 + y/2
+y = (x + y - z * (z - 2))/(x/z + y/z + 2)
+
+
+Unoptimized 3-Address Code:
+x = 9 + 0
+y = sin(23) + cos(76)
+t_1 = x * x
+t_2 = 2 * y
+t_3 = t_2 * x
+t_4 = t_1 + t_3
+t_5 = y * y
+z = t_4 + t_5
+t_6 = z / 2
+t_7 = y / 2
+x = t_6 + t_7
+t_8 = x + y
+t_9 = z - 2
+t_10 = z * t_9
+t_11 = t_8 - t_10
+t_12 = x / z
+t_13 = y / z
+t_14 = t_12 + t_13
+t_15 = t_14 + 2
+y = t_11 / t_15

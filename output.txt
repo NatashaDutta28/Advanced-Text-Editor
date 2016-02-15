@@ -1,0 +1,155 @@
+Input File Content:
+x = 9
+y = sin(23) + cos(76)
+z = x*x + 2*y*x + y*y
+x = z/2 + y/2
+y = (x + y - z * (z - 2))/(x/z + y/z + 2)
+
+
+Unoptimized 3-Address Code:
+x = 9 + 0
+y = sin(23) + cos(76)
+t_1 = x * x
+t_2 = 2 * y
+t_3 = t_2 * x
+t_4 = t_1 + t_3
+t_5 = y * y
+z = t_4 + t_5
+t_6 = z / 2
+t_7 = y / 2
+x = t_6 + t_7
+t_8 = x + y
+t_9 = z - 2
+t_10 = z * t_9
+t_11 = t_8 - t_10
+t_12 = x / z
+t_13 = y / z
+t_14 = t_12 + t_13
+t_15 = t_14 + 2
+y = t_11 / t_15
+
+
+Code after 1 optimization round:
+x = 9  
+y = 0  
+t_1 = 9 * 9
+t_2 = 2 * 0
+t_3 = t_2 * 9
+t_4 = t_1 + t_3
+t_5 = 0 * 0
+z = t_4 + t_5
+t_6 = z / 2
+t_7 = 0 / 2
+x = t_6 + t_7
+t_8 = x  
+t_9 = z - 2
+t_10 = z * t_9
+t_11 = t_8 - t_10
+t_12 = x / z
+t_13 = 0 / z
+t_14 = t_12 + t_13
+t_15 = t_14 + 2
+y = t_11 / t_15
+
+
+Code after 2 optimization round:
+x = 9  
+y = 0  
+t_2 = 0  
+t_3 = 0 * 9
+t_4 = 81 + t_3
+z = t_4  
+t_6 = z / 2
+x = t_6  
+t_9 = z - 2
+t_10 = z * t_9
+t_11 = x - t_10
+t_12 = x / z
+t_13 = 0 / z
+t_14 = t_12 + t_13
+t_15 = t_14 + 2
+y = t_11 / t_15
+
+
+Code after 3 optimization round:
+x = 9  
+y = 0  
+t_3 = 0  
+t_4 = 81  
+z = t_4  
+t_6 = t_4 / 2
+x = t_6  
+t_9 = t_4 - 2
+t_10 = t_4 * t_9
+t_11 = t_6 - t_10
+t_12 = t_6 / t_4
+t_13 = 0 / t_4
+t_14 = t_12 + t_13
+t_15 = t_14 + 2
+y = t_11 / t_15
+
+
+Code after 4 optimization round:
+x = 9  
+y = 0  
+t_4 = 81  
+z = 81  
+t_6 = 81 / 2
+x = t_6  
+t_9 = 81 - 2
+t_10 = 81 * t_9
+t_11 = t_6 - t_10
+t_12 = t_6 / 81
+t_13 = 0 / 81
+t_14 = t_12 + t_13
+t_15 = t_14 + 2
+y = t_11 / t_15
+
+
+Code after 5 optimization round:
+x = 9  
+y = 0  
+z = 81  
+x = 40  
+t_10 = 81 * 79
+t_11 = 40 - t_10
+t_12 = 40 / 81
+t_14 = t_12  
+t_15 = t_14 + 2
+y = t_11 / t_15
+
+
+Code after 6 optimization round:
+x = 9  
+y = 0  
+z = 81  
+x = 40  
+t_11 = 40 - 6399
+t_14 = 0  
+t_15 = 2  
+y = t_11 / t_15
+
+
+Code after 7 optimization round:
+x = 9  
+y = 0  
+z = 81  
+x = 40  
+t_14 = 0  
+y = -6359 / 2
+
+
+Code after 8 optimization round:
+x = 9  
+y = 0  
+z = 81  
+x = 40  
+y = -3179  
+
+
+Code after 9 optimization round:
+x = 9  
+y = 0  
+z = 81  
+x = 40  
+y = -3179  
